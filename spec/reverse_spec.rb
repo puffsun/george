@@ -6,11 +6,3 @@ describe "Reverse Service" do
     expect(reverse("George")).to eq("egroeG")
   end
 end
-
-describe "Testing Home" do
-  it "should load the home page" do
-    get '/'
-    expect(last_response).to be_ok
-  end
-end
-
