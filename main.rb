@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'slim'
 require 'sass'
+require "sinatra/activerecord"
+#require File.dirname(__FILE__) + '/config/database.rb'
+
+register Sinatra::ActiveRecordExtension
 
 get('/styles.css') {scss :styles}
 

@@ -8,6 +8,8 @@ gem 'rack'
 gem 'rake'
 gem 'slim'
 gem 'sass'
+gem 'sqlite3'
+gem 'sinatra-activerecord'
 
 # setup our test group and require rspec
 group :test do
@@ -18,6 +20,8 @@ end
 
 group :development do
   gem "rerun"
+  gem 'pry'
+  gem 'awesome_print'
 end
 
 # require a relative gem version

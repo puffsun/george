@@ -36,3 +36,6 @@ bower.json
 
 .rbenv-gemsets
 .sass-cache
+*.sqlite3
+.rake_tasks
+db/*.db
