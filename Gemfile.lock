@@ -40,6 +40,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.1)
+    sass (3.4.11)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -70,6 +71,7 @@ DEPENDENCIES
   rerun
   rspec
   rspec-autotest
+  sass
   sinatra
   sinatra-contrib
   slim

@@ -35,3 +35,4 @@ bower.json
 .powenv
 
 .rbenv-gemsets
+.sass-cache
