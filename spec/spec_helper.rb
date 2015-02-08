@@ -2,7 +2,7 @@ require 'rack/test'
 require 'rspec'
 
 #set :environment, :test
-ENV['RACK_ENV'] == 'test'
+ENV['RACK_ENV'] = 'test'
 
 module RSpecMixin
   include Rack::Test::Methods

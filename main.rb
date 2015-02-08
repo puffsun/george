@@ -2,9 +2,10 @@ require 'sinatra'
 require 'slim'
 require 'sass'
 require "sinatra/activerecord"
-#require File.dirname(__FILE__) + '/config/database.rb'
+require_relative './models/song'
 
 register Sinatra::ActiveRecordExtension
+ENV["RACK_ENV"] = 'development'
 
 get('/styles.css') {scss :styles}
 
@@ -20,6 +21,11 @@ end
 get '/contact' do
   @title = "We Are Listening"
   slim :contact
+end
+
+get '/songs' do
+  @songs = Song.all
+  slim :songs
 end
 
 not_found do

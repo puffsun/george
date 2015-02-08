@@ -21,4 +21,9 @@ describe "Testing Main Home" do
     get '/not_exist'
     expect(last_response.status).to eq(404)
   end
+
+  it "should return all songs" do
+    get '/songs'
+    expect(last_response).to be_ok
+  end
 end
