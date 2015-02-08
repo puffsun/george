@@ -1,17 +1,20 @@
 require 'sinatra'
+require 'slim'
 
 get '/' do
-  erb :home
+  slim :home
 end
 
 get '/about' do
-  erb :about
+  @title = "All About This Website"
+  slim :about
 end
 
 get '/contact' do
-  erb :contact
+  @title = "We Are Listening"
+  slim :contact
 end
 
 not_found do
-  erb :not_found
+  slim :not_found
 end

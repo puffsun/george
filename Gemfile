@@ -6,6 +6,7 @@ gem "sinatra"
 gem "sinatra-contrib"
 gem 'rack'
 gem 'rake'
+gem 'slim'
 
 # setup our test group and require rspec
 group :test do
