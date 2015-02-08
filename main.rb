@@ -28,6 +28,37 @@ get '/songs' do
   slim :songs
 end
 
+get '/songs/new' do
+  @song = Song.new
+  slim :new_song
+end
+
+post '/songs' do
+  song = Song.create(params[:song])
+  redirect to("/songs/#{song.id}")
+end
+
+get '/songs/:id' do
+  @song = Song.find(params[:id])
+  slim :show_song
+end
+
+get '/songs/:id/edit' do
+  @song = Song.find(params[:id])
+  slim :edit_song
+end
+
+put '/songs/:id' do
+  song = Song.find(params[:id])
+  song.update(params[:song])
+  redirect to("/songs/#{song.id}")
+end
+
+delete '/songs/:id' do
+  Song.find(params[:id]).destroy
+  redirect to('/songs')
+end
+
 not_found do
   slim :not_found
 end
