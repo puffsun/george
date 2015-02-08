@@ -6,4 +6,14 @@ describe "Testing Main Home" do
     get '/'
     expect(last_response).to be_ok
   end
+
+  it "should load about page" do
+    get '/about'
+    expect(last_response).to be_ok
+  end
+
+  it "should load contact page" do
+    get '/contact'
+    expect(last_response).to be_ok
+  end
 end
