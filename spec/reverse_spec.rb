@@ -1,4 +1,4 @@
-require_relative 'spec_helper.rb'
+require_relative './spec_helper.rb'
 require File.dirname(__FILE__) + '/../reverse.rb'
 
 describe "Reverse Service" do
@@ -8,12 +8,6 @@ describe "Reverse Service" do
 end
 
 describe "Testing Home" do
-  include Rack::Test::Methods
-
-  def app
-    Sinatra::Application
-  end
-
   it "should load the home page" do
     get '/'
     expect(last_response).to be_ok
