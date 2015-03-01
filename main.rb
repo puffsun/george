@@ -13,7 +13,27 @@ configure do
   set :password, 'sinatra'
 end
 
+helpers do
+  def css(*stylesheets)
+    stylesheets.map do |style|
+      "<link href=\"#{style}.css\" media=\"screen, projection\" rel=\"stylesheet\">"
+    end.join
+  end
+
+  def current?(path='/')
+    (request.path == path || request.path == path + '/') ? "current" : nil
+  end
+
+  def set_title
+    @title ||= "Songs By Sinatra"
+  end
+end
+
 get('/styles.css') {scss :styles}
+
+before do
+  set_title
+end
 
 get '/' do
   slim :home
@@ -56,7 +76,7 @@ get '/contact' do
 end
 
 get '/songs' do
-  @songs = Song.all
+  find_songs
   slim :songs
 end
 
@@ -67,28 +87,28 @@ get '/songs/new' do
 end
 
 post '/songs' do
-  song = Song.create(params[:song])
+  create_song
   redirect to("/songs/#{song.id}")
 end
 
 get '/songs/:id' do
-  @song = Song.find(params[:id])
+  @song = find_song
   slim :show_song
 end
 
 get '/songs/:id/edit' do
-  @song = Song.find(params[:id])
+  @song = find_song
   slim :edit_song
 end
 
 put '/songs/:id' do
-  song = Song.find(params[:id])
+  song = find_song
   song.update(params[:song])
   redirect to("/songs/#{song.id}")
 end
 
 delete '/songs/:id' do
-  Song.find(params[:id]).destroy
+  find_song.destroy
   redirect to('/songs')
 end
 
